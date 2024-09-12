@@ -10,12 +10,17 @@ import { PeriodicElementsService } from '../../services/periodic-elements.servic
   styleUrl: './table.component.css'
 })
 export class TableComponent implements OnInit{
-  protected periodicElements:PeriodicElement[] = [{name:'dd',position:1,weight:15.88,symbol:'S'}];
+  protected periodicElements:PeriodicElement[] = []
 
   public constructor(private elementsService:PeriodicElementsService){}
 
   public ngOnInit(): void {
+
+    this.elementsService.getPeriodicElements().subscribe((elements)=>{
+      this.periodicElements = elements
+    })
+
     this.elementsService.loadExampleData()
-    this.periodicElements=this.elementsService.periodicElements
+
   }
 }

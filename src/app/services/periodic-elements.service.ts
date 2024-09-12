@@ -1,14 +1,30 @@
 import { Injectable } from '@angular/core';
 import { PeriodicElement } from '../models/PeriodicElement.model';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeriodicElementsService {
 
-  public periodicElements: PeriodicElement[] = []
+  private periodicElements: PeriodicElement[] = []
+  private periodicElementsSubject: BehaviorSubject<PeriodicElement[]> = new BehaviorSubject<PeriodicElement[]>(this.periodicElements);
 
   constructor() { }
+
+  public getPeriodicElements(): Observable<PeriodicElement[]>{
+    return this.periodicElementsSubject.asObservable();
+  }
+
+  public addPeriodicElement(element: PeriodicElement):void{
+    this.periodicElements.push(element);
+    this.periodicElementsSubject.next(this.periodicElements)
+  }
+
+  public setPeriodicElements(elements: PeriodicElement[]): void{
+    this.periodicElements = elements;
+    this.periodicElementsSubject.next(this.periodicElements)
+  }
 
   public loadExampleData(){
     const ELEMENT_DATA: PeriodicElement[] = [
@@ -24,7 +40,7 @@ export class PeriodicElementsService {
       {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
   ];
     setTimeout(()=>{
-      this.periodicElements = ELEMENT_DATA
+      this.setPeriodicElements(ELEMENT_DATA)
     },2000)
   }
 }
