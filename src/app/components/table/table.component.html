@@ -1,1 +1,19 @@
-<p>table works!</p>
+
+<table>
+    <tr>
+        <th>Position</th>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Symbol</th>
+    </tr>
+    @for (element of periodicElements; track $index) {
+        <tr>
+            <td>{{element.position}}</td>
+            <td>{{element.name}}</td>
+            <td>{{element.weight}}</td>
+            <td>{{element.symbol}}</td>
+        </tr>
+        
+    }
+</table>
+

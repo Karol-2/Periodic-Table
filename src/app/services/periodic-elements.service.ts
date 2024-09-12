@@ -23,6 +23,8 @@ export class PeriodicElementsService {
       {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
       {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
   ];
-    this.periodicElements = ELEMENT_DATA
+    setTimeout(()=>{
+      this.periodicElements = ELEMENT_DATA
+    },2000)
   }
 }
