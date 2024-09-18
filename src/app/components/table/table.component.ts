@@ -23,4 +23,18 @@ export class TableComponent implements OnInit{
     this.elementsService.loadExampleData()
 
   }
+
+  // private filterData(item: any, searchTerm: string): boolean {
+  //   const term = searchTerm.toLowerCase();
+  //   return Object.values(item).some(value =>
+  //     value.toString().toLowerCase().includes(term)
+  //   );
+  // }
+
+  // get filteredUsers() {
+  //   if (!this.searchTerm) {
+  //     return this.users;
+  //   }
+  //   return this.users.filter(user => this.filterData(user, this.searchTerm));
+  // }
 }
