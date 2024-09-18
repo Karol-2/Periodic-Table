@@ -5,6 +5,7 @@
         <th>Name</th>
         <th>Weight</th>
         <th>Symbol</th>
+        <th></th>
     </tr>
     @for (element of periodicElements; track $index) {
         <tr>
@@ -12,8 +13,13 @@
             <td>{{element.name}}</td>
             <td>{{element.weight}}</td>
             <td>{{element.symbol}}</td>
+            <td><button (click)="editElement(element)">Edit</button></td>
         </tr>
         
     }
 </table>
+
+@if (elementToEdit) {
+    <app-edit-form [originalElement]="elementToEdit"></app-edit-form>
+}
 

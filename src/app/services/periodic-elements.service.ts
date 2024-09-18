@@ -26,6 +26,20 @@ export class PeriodicElementsService {
     this.periodicElementsSubject.next(this.periodicElements)
   }
 
+  public updateElement(element: PeriodicElement): void{
+    const foundElementIndex = this.periodicElements.findIndex((el)=>el.position == element.position)
+    if (foundElementIndex == -1) {
+      console.error("Periodic element not found!", element);
+      return
+    }
+
+    const elements = this.periodicElements
+    elements[foundElementIndex] = element
+    this.setPeriodicElements(elements)
+    console.log("Element updated!");
+    
+  }
+
   public loadExampleData(){
     const ELEMENT_DATA: PeriodicElement[] = [
       {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},

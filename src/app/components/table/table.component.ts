@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { PeriodicElement } from '../../models/PeriodicElement.model';
 import { PeriodicElementsService } from '../../services/periodic-elements.service';
+import { EditFormComponent } from '../edit-form/edit-form.component';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [],
+  imports: [EditFormComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
 export class TableComponent implements OnInit{
-  protected periodicElements:PeriodicElement[] = []
+
+  protected periodicElements:PeriodicElement[] = [];
+  protected elementToEdit: PeriodicElement | null = null;
 
   public constructor(private elementsService:PeriodicElementsService){}
 
@@ -22,6 +25,14 @@ export class TableComponent implements OnInit{
 
     this.elementsService.loadExampleData()
 
+  }
+
+  public editElement(element: PeriodicElement): void{
+    this.elementToEdit = element;  
+  }
+
+  public submit(): void{
+    this.elementToEdit = null;
   }
 
   // private filterData(item: any, searchTerm: string): boolean {

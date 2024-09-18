@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EditFormComponent } from "../edit-form/edit-form.component";
 
 @Component({
@@ -9,5 +9,5 @@ import { EditFormComponent } from "../edit-form/edit-form.component";
   styleUrl: './popup.component.css'
 })
 export class PopupComponent {
-
+  @Input() public title!: string;
 }

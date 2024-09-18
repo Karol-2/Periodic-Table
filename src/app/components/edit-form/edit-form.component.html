@@ -1,1 +1,46 @@
-<p>edit-form works!</p>
+<form [formGroup]="editForm" (submit)="handleEdit()">
+
+    <div>
+        <p>Position {{originalElement.position}} </p>
+    </div>
+
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" [formControl]="editForm.controls.name">
+
+        @if (editForm.controls.name.touched && editForm.controls.name.hasError('required')) {
+            <div class="error">This field is required</div>
+        }
+        @if (editForm.controls.name.touched && editForm.controls.name.hasError('maxlength')) {
+            <div class="error">This field is too long</div>
+        }
+    </div>
+
+    <div>
+        <label for="weight">Weight</label>
+        <input type="number" id="weight" [formControl]="editForm.controls.weight">
+
+        @if (editForm.controls.weight.touched && editForm.controls.weight.hasError('required')) {
+            <div class="error">This field is required</div>
+        }
+        @if (editForm.controls.weight.touched && editForm.controls.weight.hasError('min')) {
+            <div class="error">This value should be greater than 0</div>
+        }
+    </div>
+
+    <div>
+        <label for="symbol">Symbol</label>
+        <input type="text" id="smbol" [formControl]="editForm.controls.symbol">
+
+        @if (editForm.controls.symbol.touched && editForm.controls.symbol.hasError('required')) {
+            <div class="error">This field is required</div>
+        }
+        @if (editForm.controls.symbol.touched && editForm.controls.symbol.hasError('maxlength')) {
+            <div class="error">This field is too long</div>
+        }
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="!editForm.valid" >Submit</button>
+    </div>
+</form>
