@@ -2,12 +2,12 @@ Na rozwiązania czekamy do 23.09.2024 do godziny 8.00. Rozwiązania przyjmuje ja
 
 - [X] Przygotuj widok wyświetlający tabelę pierwiastków (kolumny Number, Name, Weight, Symbol). 
 - [X] Zasymuluj pobieranie danych do tabeli podczas startu aplikacji. 
-- [ ] Dodaj możliwość edycji dowolnej wartości rekordu wyświetlonego w tabeli (popup + input do zmiany wartości). 
-- [ ] Po zatwierdzeniu zmiany, wiersz tabeli powinien się zaktualizować. 
-- [ ] Edycja powinna odbywać się bez mutowania danych.
+- [X] Dodaj możliwość edycji dowolnej wartości rekordu wyświetlonego w tabeli (popup + input do zmiany wartości). 
+- [X] Po zatwierdzeniu zmiany, wiersz tabeli powinien się zaktualizować. 
+- [X] Edycja powinna odbywać się bez mutowania danych.
 - [ ] Dodaj filtr, który pozwoli na filtrowanie wyników (jeden input filtrujący po wszystkich polach).
 - [ ] Filtrowanie powinno odbywać się po 2s bez zmiany wartości w inpucie.
-- [ ] Jako bibliotekę do komponentów użyj https://material.angular.io/
+- [X] Jako bibliotekę do komponentów użyj https://material.angular.io/
 
 Jako dane początkowe użyj 
 const ELEMENT_DATA: PeriodicElement[] = [
